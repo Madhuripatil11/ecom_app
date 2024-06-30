@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:ecom_app/data/models/products.dart';
 import 'package:ecom_app/data/repos/product_repo.dart';
+import 'package:ecom_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailScreen extends StatefulWidget {
@@ -56,9 +59,16 @@ Products? product;
             SizedBox(
               width: 200,
               child: ElevatedButton(onPressed: () {
-                
+                if(product!=null)
+                {
+                  
+                  cartList.add(product!);
+                  log(cartList.length.toString());
+                 
+                }
               }
-              , child: const Text('Add To Card')),
+              , child: const Text('Add To Card')
+              ),
             )
 
           ],

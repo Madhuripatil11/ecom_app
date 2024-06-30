@@ -1,8 +1,7 @@
-import 'dart:developer';
-
 import 'package:ecom_app/data/models/category.dart';
 import 'package:ecom_app/data/models/products.dart';
 import 'package:ecom_app/data/repos/product_repo.dart';
+import 'package:ecom_app/ui/screens/cart_screen.dart';
 import 'package:ecom_app/ui/widgets/product_row_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -39,6 +38,13 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
       backgroundColor:  Colors.amber,
       appBar: AppBar(
         title: const Text('Products'),
+        actions: [
+          IconButton(onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (_) => const CartScreen()));
+
+          }, icon: const Icon(Icons.shopping_cart))
+        ],
         backgroundColor: Colors.amber,
         centerTitle: true,
       ),
@@ -93,13 +99,6 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
      ]
       )
     );
-  }
-
-  Future getProductsByCategory(String categoryName) async{
-   productList= await _productRepo.getProductsByCategory(categoryName);
-   setState(() {
-  
-   });
   }
 }
 
