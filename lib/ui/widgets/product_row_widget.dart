@@ -19,7 +19,7 @@ class ProductRow extends StatelessWidget {
             },
             title: Text(currentProduct.title!),
             subtitle: Text(currentProduct.description!),
-            trailing: Text(currentProduct.price.toString()),
+            trailing: Text('\$${currentProduct.price}'),
           );
   }
 }
